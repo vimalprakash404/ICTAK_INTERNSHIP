@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donor Search</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Donor Dashboard</a>
+            <!-- ... (other parts of the navigation bar) -->
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/donator_home">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/donor/search">Donor Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid p-5 bg-danger text-white text-center">
+        <div class="container">
+            <h1 class="display-4">Search Donors</h1>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <!-- City and blood group filter form -->
+        <form class="mb-3" method="POST">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label for="cityFilter">Filter by City:</label>
+                </div>
+                <div class="col-auto">
+                    <select class="form-control" id="cityFilter" name="city">
+                        <option value="">All Cities</option>
+                        {% for city in cities %}
+                            <option value="{{ city }}" {% if city == selected_city %}selected{% endif %}>{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label for="bloodGroupFilter">Filter by Blood Group:</label>
+                </div>
+                <div class="col-auto">
+                    <select class="form-control" id="bloodGroupFilter" name="blood_group">
+                        <option value="">All Blood Groups</option>
+                        {% for group in blood_groups %}
+                            <option value="{{ group }}" {% if group == selected_blood_group %}selected{% endif %}>{{ group }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Blood Group</th>
+                    <th>Last Donation Date</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>{{ user[3] }}</td>
+                    <td>{{ user[4] }}</td>
+                    <td>{{ user[5] }}</td>
+                    <td>{{ user[6] }}, {{ user[7] }}, {{ user[8] }}, {{ user[10] }}, {{ user[11] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

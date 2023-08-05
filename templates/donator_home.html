@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donator Home Page</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add custom CSS -->
+    <style>
+        body {
+            padding-top: 60px;
+            background-color: #f9f9f9; /* Light gray background color */
+            color: #333; /* Dark font color */
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #dc3545; /* Dark red background color for the navigation bar */
+        }
+        .jumbotron {
+            background-image: url("https://example.com/path/to/your/image.jpg"); /* Replace with the URL of your background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        /* White text on red buttons */
+        .btn-red {
+            background-color: #dc3545;
+            color: #fff;
+            border-color: #dc3545;
+        }
+        .btn-red:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Blood Donation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/donor/search">Donor Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron / Hero section -->
+    <div class="container-fluid p-5 bg-danger text-white text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome, {{ donator.first_name }} {{ donator.last_name }}</h1>
+            <p class="lead">Thank you for being a lifesaver!</p>
+        </div>
+    </div>
+
+    <!-- Donate section -->
+   
+
+    <!-- Profile section -->
+    <section id="profile" class="py-5 bg-light">
+        <div class="container">
+            <h2>My Profile</h2>
+            <!-- Add user's profile information here -->
+            <p>Name: {{ donator.first_name }} {{ donator.last_name }}</p>
+            <p>Blood Group: {{ donator.blood_group }}</p>
+            <p>Last Donation Date: {{ donator.last_donation_date }}</p>
+            <p>Phone Number: {{ donator.phone_number }}</p>
+            <p>Address: {{ donator.house_name }}, {{ donator.street }}</p>
+            <p>City: {{ donator.city }}</p>
+            <p>State: {{ donator.state }}</p>
+            <p>Country: {{ donator.country }}</p>
+            <a href="/donor/edit" class="btn btn-red">Edit Profile</a>
+        </div>
+    </section>
+
+    <!-- Logout section -->
+    <!-- <ul>
+        <li><strong>Name:</strong> {{ donator.first_name }} {{ donator.last_name }}</li>
+        <li><strong>Blood Group:</strong> {{ donator.blood_group }}</li>
+        <li><strong>Last Donation Date:</strong> {{ donator.last_donation_date }}</li>
+        <li><strong>Phone Number:</strong> {{ donator.phone_number }}</li>
+        <li><strong>Address:</strong> {{ donator.house_name }}, {{ donator.street }}, {{ donator.city }}, {{ donator.district }}, {{ donator.state }}, {{ donator.country }}</li>
+    </ul> -->
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

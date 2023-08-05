@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register as a Donator</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid p-5 bg-danger text-white text-center">
+        <h1>Register</h1>
+      </div>
+    <div class="container mt-5">
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="blood_group">Blood Group:</label>
+                    <select class="form-control" id="blood_group" name="blood_group" required>
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="B+">B+</option>
+                        <option value="O+">O+</option>
+                        <option value="AB+">AB+</option>
+                        <option value="A-">A-</option>
+                        <option value="B-">B-</option>
+                        <option value="O-">O-</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="last_donation_date">Last Donation Date:</label>
+                    <input type="date" class="form-control" id="last_donation_date" name="last_donation_date" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="house_name">House Name:</label>
+                <input type="text" class="form-control" id="house_name" name="house_name">
+            </div>
+
+            <div class="form-group">
+                <label for="street">Street:</label>
+                <input type="text" class="form-control" id="street" name="street">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="city">City:</label>
+                    <select class="form-control" id="city" name="city" required>
+                        <option value="">Select City</option>
+                        <!-- Populate the city options from the database -->
+                        {% for city in cities %}
+                            <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="district">District:</label>
+                    <select class="form-control" id="district" name="district" required>
+                        <option value="">Select District</option>
+                        <!-- Populate the Kerala district options manually -->
+                        {% for district in districts %}
+                            <option value="{{ district }}">{{ district }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="district">State:</label>
+                    <select class="form-control" id="state" name="state" required>
+                        <option value="">Select State</option>
+                        <!-- Populate the Kerala district options manually -->
+                        
+                            <option value="Kerala">Kerala</option>
+                            <option value="Others">Others</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" class="form-control" id="country" name="country">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery (required for Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

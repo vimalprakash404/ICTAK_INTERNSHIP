@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Donation Website</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add custom CSS -->
+    <style>
+        body {
+            padding-top: 60px;
+            background-color: #f9f9f9; /* Light gray background color */
+            color: #333; /* Dark font color */
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #dc3545; /* Dark red background color for the navigation bar */
+        }
+        .jumbotron {
+            background-image: url("https://example.com/path/to/your/image.jpg"); /* Replace with the URL of your background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        /* Styling for sections with red background color */
+        .section-red {
+            background-color: #dc3545; /* Dark red background color for sections */
+            color: #fff; /* White font color for sections */
+            padding: 40px 0;
+        }
+        /* White text on red buttons */
+        .btn-red {
+            background-color: #dc3545;
+            color: #fff;
+            border-color: #dc3545;
+        }
+        .btn-red:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Blood Donation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#donate">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron / Hero section -->
+    <div class=" ">
+        <div class="container">
+            <h1 class="display-4">Welcome to the Blood Donation Website</h1>
+            <p class="lead">Together, we can save lives!</p>
+        </div>
+    </div>
+
+    <!-- About section -->
+    <section id="about" class="py-5 section-red">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About Blood Donation</h2>
+                    <p>We aim to educate visitors about the life-saving impact of blood donation. Every donation can make a significant difference in someone's life, providing hope and support during medical emergencies and treatments.</p>
+                </div>
+                <div class="col-md-6">
+                    <!-- Add an image related to blood donation here -->
+                    <img src="https://wallpaperaccess.com/full/2381638.png" class="img-fluid" alt="Blood Donation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate section -->
+    <section id="donate" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Add an image related to blood donation here -->
+                    <img src="https://apollocancercentres.com/explore/donate/blood-donation/blood-donation.jpg" class="img-fluid" alt="Donate Blood">
+                </div>
+                <div class="col-md-6">
+                    <h2>Donate Blood</h2>
+                    <p>Join us in becoming a hero by donating blood. Your selfless act can be the lifeline for those in need. Together, we can make a positive impact and save lives.</p>
+                    <a href="/login" class="btn btn-red">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="py-5 section-red">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>For any questions or inquiries, feel free to reach out. We value your support and welcome your feedback to improve our efforts.
+
+                Together, let's make a difference and create a future where no life is lost due to a shortage of blood. Thank you for visiting the Blood Donation Website.</p>
+            <p>Email: info@blooddonation.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </section>
+
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User Information</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Donor Dashboard</a>
+            <!-- ... (other parts of the navigation bar) -->
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/donator_home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/donor/search">Donor Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid p-5 bg-danger text-white text-center">
+        <div class="container">
+            <h1 class="display-4">Edit Details</h1>
+        </div>
+    </div>
+    <div class="container mt-5">
+       
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-info">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="firstNameInput">First Name:</label>
+                <input type="text" class="form-control" id="firstNameInput" name="first_name" value="{{ user_info[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="lastNameInput">Last Name:</label>
+                <input type="text" class="form-control" id="lastNameInput" name="last_name" value="{{ user_info[2] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="bloodGroupInput">Blood Group:</label>
+                <select class="form-control" id="bloodGroupInput" name="blood_group" required>
+                    <option value="" {% if not user_info[3] %}selected{% endif %}>Select Blood Group</option>
+                    <option value="A+" {% if user_info[3] == 'A+' %}selected{% endif %}>A+</option>
+                    <option value="A-" {% if user_info[3] == 'A-' %}selected{% endif %}>A-</option>
+                    <option value="B+" {% if user_info[3] == 'B+' %}selected{% endif %}>B+</option>
+                    <option value="B-" {% if user_info[3] == 'B-' %}selected{% endif %}>B-</option>
+                    <option value="AB+" {% if user_info[3] == 'AB+' %}selected{% endif %}>AB+</option>
+                    <option value="AB-" {% if user_info[3] == 'AB-' %}selected{% endif %}>AB-</option>
+                    <option value="O+" {% if user_info[3] == 'O+' %}selected{% endif %}>O+</option>
+                    <option value="O-" {% if user_info[3] == 'O-' %}selected{% endif %}>O-</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lastDonationDateInput">Last Donation Date:</label>
+                <input type="date" class="form-control" id="lastDonationDateInput" name="last_donation_date" value="{{ user_info[4] }}">
+            </div>
+            <div class="form-group">
+                <label for="phoneNumberInput">Phone Number:</label>
+                <input type="tel" class="form-control" id="phoneNumberInput" name="phone_number" value="{{ user_info[5] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="street">Street :</label>
+                <input type="text" class="form-control" id="street" name="street" value="{{ user_info[7] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="addressInput">House name:</label>
+                <textarea class="form-control" id="addressInput" name="address" rows="4" required>{{ user_info[6] }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="cityInput">City:</label>
+                <select class="form-control" id="cityFilter" name="city">
+                    <option value="{{ user_info[8] }}">{{ user_info[8] }}</option>
+                    {% for city in cities %}
+                        <option value="{{ city }}" {% if city == selected_city %}selected{% endif %}>{{ city }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="/donator_home" class="btn btn-primary">Back to Home</a>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

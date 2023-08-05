@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+            <a class="navbar-brand" href="/admin/add_city">Add City</a>
+            <a class="navbar-brand" href="/logout">Logout</a>
+        </div>
+    </nav>
+    <div class="container-fluid p-5 bg-danger text-white text-center">
+        <h1>All Registered Users (Donators)</h1>
+      </div>
+    <div class="container mt-5">
+        <!-- City filter form -->
+        <form class="mb-3" method="POST">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label for="cityFilter">Filter by City:</label>
+                </div>
+                <div class="col-auto">
+                    <select class="form-control" id="cityFilter" name="city">
+                        <option value="">All Cities</option>
+                        {% for city in cities %}
+                            <option value="{{ city }}" {% if city == selected_city %}selected{% endif %}>{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <select class="form-control" id="bloodGroupFilter" name="blood_group">
+                        <option value="">All Blood Groups</option>
+                        {% for group in blood_groups %}
+                            <option value="{{ group }}" {% if group == selected_blood_group %}selected{% endif %}>{{ group }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Blood Group</th>
+                    <th>Last Donation Date</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>{{ user[3] }}</td>
+                    <td>{{ user[4] }}</td>
+                    <td>{{ user[5] }}</td>
+                    <td>{{ user[6] }}, {{ user[7] }}, {{ user[8] }}, {{ user[10] }}, {{ user[11] }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('delete_donator', donator_id=user[0]) }}" onsubmit="return confirm('Are you sure you want to delete this donator?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
